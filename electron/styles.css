@@ -317,6 +317,31 @@ label {
   font-size: 13px;
 }
 
+.view-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--panel-2);
+}
+
+.tab-button {
+  height: 28px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tab-button.active {
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(23, 32, 51, 0.08);
+}
+
 .checks-list {
   min-height: 0;
   overflow: auto;
@@ -327,14 +352,28 @@ label {
   display: grid;
   grid-template-columns: 74px minmax(0, 1fr);
   gap: 10px;
+  width: 100%;
+  height: auto;
   padding: 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
+  text-align: left;
 }
 
 .check-item + .check-item {
   margin-top: 8px;
+}
+
+.check-item:hover {
+  border-color: #9eacc0;
+  background: #f8fafc;
+}
+
+.check-item.selected {
+  border-color: var(--focus);
+  background: #f8fbff;
+  box-shadow: 0 0 0 1px rgba(53, 104, 212, 0.2);
 }
 
 .status-pill {
@@ -400,7 +439,195 @@ label {
   min-width: 86px;
 }
 
-pre {
+.details-view {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px;
+  background: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.empty-state {
+  display: grid;
+  place-content: center;
+  min-height: 100%;
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.detail-header,
+.detail-section {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.detail-header {
+  padding: 14px;
+}
+
+.detail-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-title-row h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.detail-summary {
+  margin: 10px 0 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.meta-chip {
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: #40506a;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.detail-section {
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.detail-section h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.advice-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.event-list {
+  display: grid;
+  gap: 10px;
+}
+
+.event-card {
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.event-card h4 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.event-message {
+  margin: 10px 0 0;
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+  gap: 6px 12px;
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+.fact-grid dt {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.fact-grid dd {
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.simple-table {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.simple-row {
+  display: grid;
+  grid-template-columns: 80px minmax(180px, 1fr) 110px 100px;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.simple-row:first-child {
+  border-top: 0;
+}
+
+.simple-header {
+  background: var(--panel-2);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.simple-row span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.raw-details summary {
+  cursor: pointer;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detail-json {
+  max-height: 320px;
+  margin: 10px 0 0;
+  padding: 12px;
+  overflow: auto;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #e5edf8;
+  font: 12px/1.55 Consolas, "Cascadia Mono", monospace;
+  white-space: pre-wrap;
+}
+
+.report-text {
   flex: 1;
   min-height: 0;
   margin: 0;
@@ -423,5 +650,9 @@ pre {
 
   .results-layout {
     grid-template-columns: 1fr;
+  }
+
+  .simple-row {
+    grid-template-columns: 70px minmax(120px, 1fr) 90px 90px;
   }
 }

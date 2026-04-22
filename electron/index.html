@@ -86,14 +86,18 @@
 
           <div class="report-panel">
             <div class="section-heading">
-              <h2>Report</h2>
+              <div class="view-tabs" role="tablist" aria-label="Result view">
+                <button id="detailsTabButton" class="tab-button active" type="button">Details</button>
+                <button id="reportTabButton" class="tab-button" type="button">Report</button>
+              </div>
               <div class="report-actions">
                 <button id="openTextButton" type="button" disabled>Open Text</button>
                 <button id="openJsonButton" type="button" disabled>Open JSON</button>
                 <button id="openFolderButton" type="button" disabled>Open Folder</button>
               </div>
             </div>
-            <pre id="reportText">Run a diagnosis to see the report here.</pre>
+            <div id="detailsView" class="details-view"></div>
+            <pre id="reportText" class="report-text hidden">Run a diagnosis to see the report here.</pre>
           </div>
         </section>
       </main>

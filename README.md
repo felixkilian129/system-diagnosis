@@ -31,6 +31,8 @@ The scan profile selector includes:
 - `Full`: quick checks plus normal platform health checks
 - `Extended - Windows Events + Hardware`: full checks plus Windows Event Viewer history, Reliability Monitor records, application crash history, Windows Update health, Service Control Manager events, driver setup/runtime events, targeted hardware event providers, and a hardware inventory snapshot
 
+After a scan, select any check in the results list to inspect readable details. Event-heavy checks show event cards, repeated event IDs, crash sources, extracted application/module names where available, advice, and the raw structured evidence.
+
 Build the portable Windows app:
 
 ```powershell
