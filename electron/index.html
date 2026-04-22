@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Diagnosis</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">SD</div>
+          <div>
+            <h1>System Diagnosis</h1>
+            <p id="versionLabel">Ready</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <h2>Target</h2>
+          <label for="deviceSelect">Device</label>
+          <select id="deviceSelect"></select>
+          <div id="deviceHint" class="hint"></div>
+          <button id="refreshButton" type="button">Refresh Devices</button>
+        </section>
+
+        <section class="panel">
+          <h2>Scan</h2>
+          <label for="profileSelect">Profile</label>
+          <select id="profileSelect">
+            <option value="full">Full</option>
+            <option value="extended">Extended - Windows Events + Hardware</option>
+            <option value="quick">Quick</option>
+          </select>
+
+          <label for="formatSelect">Report Format</label>
+          <select id="formatSelect">
+            <option value="all">Text and JSON</option>
+            <option value="text">Text</option>
+            <option value="json">JSON</option>
+          </select>
+
+          <label for="timeoutInput">Command Timeout</label>
+          <div class="input-row">
+            <input id="timeoutInput" type="number" min="5000" step="1000" value="15000">
+            <span>ms</span>
+          </div>
+
+          <label for="outputPath">Reports</label>
+          <div class="output-row">
+            <input id="outputPath" type="text" readonly>
+            <button id="chooseOutputButton" type="button">Choose</button>
+          </div>
+
+          <button id="runButton" class="primary" type="button">Run Diagnosis</button>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Current Result</p>
+            <h2 id="targetTitle">No scan yet</h2>
+          </div>
+          <div id="runState" class="run-state idle">Idle</div>
+        </header>
+
+        <section class="summary-grid" aria-label="Summary">
+          <div class="metric fail"><span id="failCount">0</span><label>Fail</label></div>
+          <div class="metric warn"><span id="warnCount">0</span><label>Warn</label></div>
+          <div class="metric ok"><span id="okCount">0</span><label>OK</label></div>
+          <div class="metric skip"><span id="skipCount">0</span><label>Skip</label></div>
+          <div class="metric info"><span id="infoCount">0</span><label>Info</label></div>
+        </section>
+
+        <section class="results-layout">
+          <div class="checks-panel">
+            <div class="section-heading">
+              <h2>Checks</h2>
+              <span id="checkCount">0</span>
+            </div>
+            <div id="checksList" class="checks-list"></div>
+          </div>
+
+          <div class="report-panel">
+            <div class="section-heading">
+              <h2>Report</h2>
+              <div class="report-actions">
+                <button id="openTextButton" type="button" disabled>Open Text</button>
+                <button id="openJsonButton" type="button" disabled>Open JSON</button>
+                <button id="openFolderButton" type="button" disabled>Open Folder</button>
+              </div>
+            </div>
+            <pre id="reportText">Run a diagnosis to see the report here.</pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "system-diagnosis",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop and CLI diagnostics for local Windows/Linux systems and Android devices.",
+  "type": "commonjs",
+  "main": "electron/main.js",
+  "bin": {
+    "system-diagnosis": "./system_diagnosis.js"
+  },
+  "scripts": {
+    "help": "node system_diagnosis.js --help",
+    "list": "node system_diagnosis.js list",
+    "scan": "node system_diagnosis.js scan --target local",
+    "scan:quick": "node system_diagnosis.js scan --target local --profile quick",
+    "scan:full": "node system_diagnosis.js scan --target local --profile full",
+    "scan:extended": "node system_diagnosis.js scan --target local --profile extended",
+    "gui": "electron .",
+    "package:win": "electron-packager . \"System Diagnosis\" --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/logs\" --ignore=\"^/dist\" --ignore=\"^/installed_applications\\.csv$\" --ignore=\"^/project_requirements\\.csv$\" --ignore=\"^/sensor_block\\.tmp\\.ps1$\" --prune=true",
+    "check": "node --check system_diagnosis.js && node --check electron/main.js && node --check electron/preload.js && node --check electron/renderer.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "electron": "^39.1.0",
+    "electron-packager": "^17.1.2"
+  }
+}

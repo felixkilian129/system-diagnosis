@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+release/
+
+# Runtime reports and diagnostics
+logs/
+*.log
+
+# Generated inventory exports
+installed_applications.csv
+project_requirements.csv
+
+# Temporary files
+*.tmp
+*.tmp.*
+*.bak
+
+# Environment and editor state
+.env
+.env.*
+.vscode/
+.idea/
+
+# OS metadata
+Thumbs.db
+.DS_Store
