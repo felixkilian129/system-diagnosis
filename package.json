@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Desktop and CLI diagnostics for local Windows/Linux systems and Android devices.",
+  "license": "MIT",
   "type": "commonjs",
   "main": "electron/main.js",
   "bin": {

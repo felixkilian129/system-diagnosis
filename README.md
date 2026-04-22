@@ -93,3 +93,7 @@ Generated directories and reports are ignored by Git:
 - generated inventory CSV files
 
 Use `npm.cmd run check` before committing code changes.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
