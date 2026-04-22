@@ -2,8 +2,6 @@
 
 System Diagnosis is a small Electron desktop app and Node.js CLI for collecting local system health reports. It scans the Windows or Linux computer running the tool, and it can scan connected Android devices through `adb`.
 
-iOS is intentionally not supported.
-
 ## Requirements
 
 - Node.js 18 or newer
